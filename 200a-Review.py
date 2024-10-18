@@ -1,12 +1,16 @@
 #!python3
 
-
 def getIntegers(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the integers to the new list
-    integers = []
+    numbers = []
+    
+    for num in myList:
+        if num == int(num):
+            numbers.append(num)
+    print(numbers)
+    return numbers
 
-    return integers
 
 def getFactor(myList,number):
     # myList : expected list or tuple
@@ -14,14 +18,20 @@ def getFactor(myList,number):
     # iterate through the list and add the number to the list if
     # it is a factor of the number
     factors = []
-
+    for x in myList:
+        if x != 0 and number / x == 0:
+            factors.append(x)
+    print(factors)
     return factors
 
 def getNegatives(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the negative numbers to the new list
     negatives = []
-
+    for x in myList:
+        if x < 0:
+            negatives.append(x)
+    print(negatives)
     return negatives
 
 def getIntersection(list1,list2):
@@ -59,8 +69,11 @@ def main():
     numbers2 = [3,7,11,15,19,23,27,31,35,39,44,50]
     try:
         assert getIntegers([3,4,1.2,1.3,5]) == [3,4,5]
+        print('1st done')
         assert getFactor(range(10),12) == [1,2,3,4,6]
+        print('2nd done')
         assert getNegatives([-3,-1,0,1,4]) == [-3,-1]
+        print('3rd done')
         assert getUnion(easy1,easy2) == [-6, -4, -2, 0.1, 2, 4, 5, 6, 8, 10, 15]
         assert getIntersection(easy1,easy2) == [2,4,6]
         assert getMerge(easy1,easy2) == [5,10,15,2,2,4,4,6,6,8,-2,-4,-6,0.1]
