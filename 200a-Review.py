@@ -4,22 +4,18 @@
 def getIntegers(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the integers to the new list
-    integers = []
-    
-    for x in getIntegers:
-        if "." in x:
-            integers.append(x)
-            
-
+    integers = [3,4,1.2,1.3,5]
+    numbers = [num for num in integers if num == int(num)]  
+    print(numbers)
     return integers
 
-"""""
+
 def getFactor(myList,number):
     # myList : expected list or tuple
     # number : integer
     # iterate through the list and add the number to the list if
     # it is a factor of the number
-    factors = []
+    factors = [range(10),12]
 
     return factors
 
@@ -56,7 +52,7 @@ def getMerge(list1,list2):
     # if the list2 element is not in list1, add it to the end
 
     return list1
-"""
+
 
 def main():
     easy1 = [5,10,15,2,4,6,8]
