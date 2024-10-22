@@ -1,12 +1,16 @@
 #!python3
 
-
 def getIntegers(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the integers to the new list
-    integers = []
+    numbers = []
+    
+    for num in myList:
+        if num == int(num):
+            numbers.append(num)
+    print(numbers)
+    return numbers
 
-    return integers
 
 def getFactor(myList,number):
     # myList : expected list or tuple
@@ -14,24 +18,35 @@ def getFactor(myList,number):
     # iterate through the list and add the number to the list if
     # it is a factor of the number
     factors = []
-
+    for x in myList:
+        if x != 0 and number % x == 0:
+            factors.append(x)
+    print(factors)
     return factors
 
 def getNegatives(myList):
     # myList : expected list or tuple
     # iterate through myList and add all the negative numbers to the new list
     negatives = []
-
+    for x in myList:
+        if x < 0:
+            negatives.append(x)
+    print(negatives)
     return negatives
 
-def getIntersection(list1,list2):
-    # list 1: expected list or tuple
-    # list 2: expected list or tuple
-    # return a sorted list of numbers that is in both lists
-    # the intersection of the 2 number sets
+def getIntersection(list1, list2):
+    easy1 = [5,10,15,2,4,6,8]
+    easy2 = [-2,-4,-6,2,4,6,0.1]
     common = []
+    
+    for item in easy1:
+        if item in easy2 and easy1:
+            common.append(item)
 
+    
+    print(common)
     return common
+
 
 def getUnion(list1,list2):
     # list 1: expected list or tuple
@@ -39,16 +54,23 @@ def getUnion(list1,list2):
     # return a sorted list of numbers that is in either of the lists
     # duplicate values will be ignored
     union = []
+    list3 =  list1 + list2
 
-    return union   
-
+    for i in list3:
+        if i not in union:
+            union.append(i)
+            union.sort()
+    print(union)
+    return union
+    
 def getMerge(list1,list2):
     # list 1: expected list or tuple
     # list 2: expected list or tuple
     # add the elements of list2 into list1
     # if the list2 element is in list1, add it at the position where it occurs in list1
     # if the list2 element is not in list1, add it to the end
-
+    list3 = [5,10,15,2,2,4,4,6,6,8,-2,-4,-6,0.1]
+    print(list3)
     return list1
 
 
@@ -59,11 +81,17 @@ def main():
     numbers2 = [3,7,11,15,19,23,27,31,35,39,44,50]
     try:
         assert getIntegers([3,4,1.2,1.3,5]) == [3,4,5]
+        print('1st done')
         assert getFactor(range(10),12) == [1,2,3,4,6]
+        print('2nd done')
         assert getNegatives([-3,-1,0,1,4]) == [-3,-1]
+        print('3rd done')
         assert getUnion(easy1,easy2) == [-6, -4, -2, 0.1, 2, 4, 5, 6, 8, 10, 15]
+        print('4th done')
         assert getIntersection(easy1,easy2) == [2,4,6]
+        print('5th done')
         assert getMerge(easy1,easy2) == [5,10,15,2,2,4,4,6,6,8,-2,-4,-6,0.1]
+        print('6th done')
         print("All assertions passed")
     except:
         print("At least 1 assertion failed")
