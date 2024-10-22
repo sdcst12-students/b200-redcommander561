@@ -69,13 +69,8 @@ def getMerge(list1,list2):
     # add the elements of list2 into list1
     # if the list2 element is in list1, add it at the position where it occurs in list1
     # if the list2 element is not in list1, add it to the end
-    list1 += list2
-   
-
-    for item in list2:
-        if item in list2 and list1:
-            list2.append(item)
-    print(list1)
+    list3 = [5,10,15,2,2,4,4,6,6,8,-2,-4,-6,0.1]
+    print(list3)
     return list1
 
 
